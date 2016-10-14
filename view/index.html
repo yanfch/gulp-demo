@@ -1,0 +1,644 @@
+<!doctype html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<html>
+<head>
+    <title><%= title %></title>
+    <script src="../js/performanceMonitoringCommon.js"></script>
+    <link rel="stylesheet" href="../css/swiper.3.1.7.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/newHome.css">
+    <script src="../js/jquery-1.11.3.js"></script>
+    <!--<script src="../js/loading.js"></script>-->
+</head>
+<body>
+    <header>
+        <div class="p-rank-c" id="rankC">
+            <span class="p-rank-txt">6千万粉丝超大平台，招资深内容/美术编辑/产品运营</span>
+            <span class="p-rank-close"></span>
+        </div>
+        <a href="/wechat-website/main/updataUser" id="headArowId">
+            <div class="header-aRow clearfix">
+                <div class="portrait-content fl"><img class="icon-portrait fl"  src="../img/icon-portrait.png" id="headImgId"></div>
+                <div class="header-name fl" id="nickNameId"><%- user.nickname %></div>
+                <div class="header-tel fl" id="telNumId"><%- user.telephone %></div>
+                <div class="fl" id="cityId"></div>
+                <img class="icon-arrow fr"  src="../img/homeArrowa.png"/>
+            </div>
+        </a>
+        <div class="home-contenta clearfix">
+            <div class="home-contentb fl">
+                <div class="home-canvasContent">
+                    <a href="/wechat-website/main/serviceMargin" class="nobindName">
+                        <div id="flow" class="canvas-home"></div>
+                    </a>
+                    <a href="/wechat-website/main/telCharge">
+                        <input type="button" value="买流量" class="btn-home"/>
+                        <input type="hidden" name="_csrf" value="<%= csrf %>" />
+                    </a>
+                </div>
+                <div class="home-contentc">
+                    <a href="/wechat-website/main/fareBalance" class="nobindName">
+                        <div class="home-contentTitle">本月已产生话费</div>
+                        <div class="home-contentTxt"><span class="home-contentTxt"  id="realTiemTelFeeId"></span><span class="home-unit">元</span></div>
+                    </a>
+                </div>
+            </div>
+            <div class="home-contentb fl">
+                <div class="home-contentc">
+                    <a href="/wechat-website/main/serviceMargin" class="nobindName">
+                        <div class="home-contentTitle">剩余通话</div>
+                        <div class="home-contentTxt" ><span class="home-contentTxt"  id="remainTelId"></span><span class="home-unit">分钟</span></div>
+                    </a>
+                </div>
+                <div class="home-contentc">
+                    <a href="http://jf.10086.cn/m/" class="nobindName">
+                        <div class="home-contentTitle">当前积分</div>
+                        <div class="home-contentTxt"><span class="home-contentTxt"  id="pointValueID"></span><span class="home-unit">分</span></div>
+                    </a>
+                </div>
+                <div class="home-contentc">
+                    <a href="/wechat-website/main/fareBalance" class="nobindName">
+                        <div class="home-contentTitle" >话费余额</div>
+                        <div class="home-contentTxt"><span class="home-contentTxt"  id="remainTelFeeId"></span><span class="home-unit">元</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="module01">
+            <div class="swiper-container" >
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <ul class="indexRow clearfix">
+                            <a href="/wechat-website/main/serviceMargin" class="nobindName">
+                                <li class="iconContent borderR">
+                                    <img class="wicon" src="../img/homeIcon-b.png" alt="套餐余量"/>
+                                    <div class="ititle">套餐余量</div>
+                                </li>
+                            </a>
+                            <a href="/wechat-website/main/billSum" class="nobindName">
+                                <li class="iconContent borderR">
+                                    <img class="wicon" src="../img/homeIcon-c.png" alt="历史账单"/>
+                                    <div class="ititle">历史账单</div>
+                                </li>
+                            </a>
+                            <a href="http://jf.10086.cn/m/" class="nobindName">
+                                <li class="iconContent">
+                                    <img class="wicon" src="../img/homeIcon-d.png" alt="积分商城"/>
+                                    <div class="ititle">积分商城</div>
+                                </li>
+                            </a>
+                        </ul>
+                        <ul class="indexRow clearfix">
+                            <a class="nobindName" href="http://211.138.17.31:25000/rnmsol/weixin/ph-realname.html?requestSource=000002&transactionID=00000220150428193030100001&billId=13800138000">
+                                <li class="iconContent borderR">
+                                    <img class="wicon" src="../img/homeIcon-e.png" alt="实名补登记"/>
+                                    <div class="ititle">实名补登记</div>
+                                </li>
+                            </a>
+
+                            <a href="/wechat-website/main/building?typename=bendiyewu" class="nobindName">
+                                <li class="iconContent borderR">
+                                    <img class="wicon" src="../img/homeIcon-f.png" alt="本省业务"/>
+                                    <div class="ititle">本省业务</div>
+
+                                </li>
+                            </a>
+                            <a href="/wechat-website/main/fareBalance" class="nobindName">
+                                <li class="iconContent">
+                                    <img class="wicon" src="../img/homeIcon-g.png" alt="话费查询"/>
+                                    <div class="ititle">话费查询</div>
+                                </li>
+                            </a>
+                        </ul>
+                        <ul class="indexRow clearfix">
+                            <a href="/wechat-website/main/alreadyService" class="nobindName">
+                                <li class="iconContent borderR">
+                                    <img class="wicon" src="../img/homeIcon-h.png" alt="已订购业务"/>
+                                    <div class="ititle">已订购业务</div>
+                                </li>
+                            </a>
+
+                            <a href="http://mall.10085.cn/c" class="nobindName">
+                                <li class="iconContent borderR">
+                                    <img class="wicon" src="../img/homeIcon-i.png" alt="手机商城"/>
+                                    <div class="ititle">手机商城</div>
+                                </li>
+                            </a>
+                            <a href="/hevbComplete/complete" class="nobindName">
+                                <li class="iconContent">
+                                    <img class="wicon" src="../img/homeIcon-l.png" alt="和微币"/>
+                                    <div class="ititle">和微币</div>
+                                </li>
+                            </a>
+                        </ul>
+                    </div>
+                    <div class="swiper-slide">
+                        <ul class="indexRow borderB clearfix">
+
+                            <a href="/operation/microWebsite?accountOriginalId=c3d1cabaa0&type=11" class="nobindName">
+                                <li class="iconContent borderR">
+                                    <img class="wicon" src="../img/homeIcon-j.png" alt="优惠集锦"/>
+                                    <div class="ititle">优惠集锦</div>
+
+                                </li>
+                            </a>
+
+                            <li class="iconContent borderR">
+                                <img class="wicon" src="../img/homeIcon-no.png"/>
+                                <div class="ititle"></div>
+                            </li>
+                            <li class="iconContent ">
+                                <img class="wicon" src="../img/homeIcon-no.png"/>
+                                <div class="ititle"></div>
+                            </li>
+
+                        </ul>
+                        <ul class="indexRow borderB clearfix">
+                            <li class="iconContent borderR">
+                                <img class="wicon" src="../img/homeIcon-no.png"/>
+                                <div class="ititle"></div>
+                            </li>
+                            <li class="iconContent borderR">
+                                <img class="wicon" src="../img/homeIcon-no.png"/>
+                                <div class="ititle"></div>
+                            </li>
+                            <li class="iconContent ">
+                                <img class="wicon" src="../img/homeIcon-no.png"/>
+                                <div class="ititle"></div>
+                            </li>
+                        </ul>
+                        <ul class="indexRow clearfix">
+                            <li class="iconContent borderR">
+                                <img class="wicon" src="../img/homeIcon-no.png"/>
+                                <div class="ititle"></div>
+                            </li>
+                            <li class="iconContent borderR">
+                                <img class="wicon" src="../img/homeIcon-no.png"/>
+                                <div class="ititle"></div>
+                            </li>
+                            <li class="iconContent">
+                                <img class="wicon" src="../img/homeIcon-no.png"/>
+                                <div class="ititle"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="module02">
+            <div  class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a class="nobindName" href="http://mp.weixin.qq.com/s?__biz=MzA5OTM5NTEwOA==&mid=668898566&idx=1&sn=4b62c8ea010df2c676f7734a37dd9c11&scene=0#rd"><img class="ViwepageImg" src="../img/new/Viwepager_vivo.png?v=1.2"/></a>
+                    </div>
+                    <div class="swiper-slide"><a class="nobindName" href="http://mp.weixin.qq.com/s?__biz=MzA5OTM5NTEwOA==&mid=668896638&idx=4&sn=90169cfcc57aee83939635a68ad94656&scene=0#rd"><img class="ViwepageImg" src="../img/new/recruit.jpg"/></a></div>
+                    <div class="swiper-slide"><a class="nobindName" href="http://wx.10086.cn/gfms/app/apk/html/4GDownload.html"><img class="ViwepageImg" src="../img/new/Viwepager4.jpg"/></a></div>
+                    <div class="swiper-slide"><a class="nobindName" href="/operation/microWebsite?accountOriginalId=c3d1cabaa0&type=11"><img class="ViwepageImg" src="../img/new/Viwepager1.png"/></a></div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </main>
+
+    <% if (user.phoneStatus == '2') { %>
+    <div class="popup" id="popudID" style="display:block;">
+    </div>
+    <div class="popup-content" id="popupConetID" style="display:block;">
+        <div class="popup-icon"><img class="popup-iconImg" src="../img/ac-icon2.png"/></div>
+        <div class="popup-txt">您还没有绑定手机号码，快来绑定享受更多服务！</div>
+        <div class="popup-btnContent clearfix">
+            <div class="popup-btnMore fl" id="continueScanID">再看看</div><div class="popup-btnband fl"  id="bindID">立即绑定</div>
+        </div>
+    </div>
+    <% } %>
+    <footer class="copyRight">
+        <p>以上业务查询时间为<span id="timeID"></span></p>
+        <p class="copyRight-txt">Copyright&copy;2016 中移在线服务有限公司 版权所有</p>
+        <footer class="floatlayer" id="newHomefloatlayer">
+            <span>您对本功能满意吗？点击评价~</span><img src="../img/delete.png" class="fl-del" />
+        </footer>
+    </footer>
+</body>
+<script src="../js/swiper.3.1.7.min.js"></script>
+<script src="../js/dist/echarts.js"></script>
+<script src="../js/dist/chart/gauge.js"></script>
+<script src="../js/flow.js"></script>
+<script src="../js/commons.js"></script>
+<script type="text/javascript">
+    /**
+     * 格式化数字显示方式
+     * 用法
+     * formatNumber(12345.999,'#,##0.00');
+     * formatNumber(12345.999,'#,##0.##');
+     * formatNumber(123,'000000');
+     * @param num
+     * @param pattern
+     */
+    function formatNumber(num,pattern){
+        var strarr = num?num.toString().split('.'):['0'];
+        var fmtarr = pattern?pattern.split('.'):[''];
+        var retstr='';
+
+        // 整数部分
+        var str = strarr[0];
+        var fmt = fmtarr[0];
+        var i = str.length-1;
+        var comma = false;
+        for(var f=fmt.length-1;f>=0;f--){
+            switch(fmt.substr(f,1)){
+                case '#':
+                    if(i>=0 ) retstr = str.substr(i--,1) + retstr;
+                    break;
+                case '0':
+                    if(i>=0) retstr = str.substr(i--,1) + retstr;
+                    else retstr = '0' + retstr;
+                    break;
+                case ',':
+                    comma = true;
+                    retstr=','+retstr;
+                    break;
+            }
+        }
+        if(i>=0){
+            if(comma){
+                var l = str.length;
+                for(;i>=0;i--){
+                    retstr = str.substr(i,1) + retstr;
+                    if(i>0 && ((l-i)%3)==0) retstr = ',' + retstr;
+                }
+            }
+            else retstr = str.substr(0,i+1) + retstr;
+        }
+
+        retstr = retstr+'.';
+        // 处理小数部分
+        str=strarr.length>1?strarr[1]:'';
+        fmt=fmtarr.length>1?fmtarr[1]:'';
+        i=0;
+        for(var f=0;f<fmt.length;f++){
+            switch(fmt.substr(f,1)){
+                case '#':
+                    if(i<str.length) retstr+=str.substr(i++,1);
+                    break;
+                case '0':
+                    if(i<str.length) retstr+= str.substr(i++,1);
+                    else retstr+='0';
+                    break;
+            }
+        }
+        return retstr.replace(/^,+/,'').replace(/\.$/,'');
+    };
+    function getProvince(provinceNum){//获取省份
+        var pronvince;
+        switch(provinceNum){
+            case "100":
+                pronvince="北京";
+                break;
+            case "200":
+                pronvince="广东";
+                break;
+            case "210":
+                pronvince="上海 ";
+                break;
+            case "220":
+                pronvince="天津";
+                break;
+            case "230":
+                pronvince="重庆";
+                break;
+            case "240":
+                pronvince="辽宁";
+                break;
+            case "250":
+                pronvince="江苏";
+                break;
+            case "270":
+                pronvince="湖北";
+                break;
+            case "280":
+                pronvince="四川";
+                break;
+            case "290":
+                pronvince="陕西";
+                break;
+            case "311":
+                pronvince="河北";
+                break;
+            case "351":
+                pronvince="山西";
+                break;
+            case "371":
+                pronvince="河南";
+                break;
+            case "431":
+                pronvince="吉林";
+                break;
+            case "451":
+                pronvince="黑龙江";
+                break;
+            case "471":
+                pronvince="内蒙古";
+                break;
+            case "531":
+                pronvince="山东";
+                break;
+            case "551":
+                pronvince="安徽";
+                break;
+            case "571":
+                pronvince="浙江";
+                break;
+            case "591":
+                pronvince="福建";
+                break;
+            case "731":
+                pronvince="湖南";
+                break;
+            case "771":
+                pronvince="广西";
+                break;
+            case "791":
+                pronvince="江西";
+                break;
+            case "851":
+                pronvince="贵州";
+                break;
+            case "871":
+                pronvince="云南";
+                break;
+            case "891":
+                pronvince="西藏";
+                break;
+            case "898":
+                pronvince="海南";
+                break;
+            case "931":
+                pronvince="甘肃";
+                break;
+            case "951":
+                pronvince="宁夏";
+                break;
+            case "971":
+                pronvince="青海";
+                break;
+            case "991":
+                pronvince="新疆";
+                break;
+            default:
+                pronvince="";
+        };
+        return pronvince;
+    };
+
+
+    Date.prototype.pattern=function(fmt) {
+        var o = {
+            "M+" : this.getMonth()+1, //月份
+            "d+" : this.getDate(), //日
+            "h+" : this.getHours()%12 == 0 ? 12 : this.getHours()%12, //小时
+            "H+" : this.getHours(), //小时
+            "m+" : this.getMinutes(), //分
+            "s+" : this.getSeconds(), //秒
+            "q+" : Math.floor((this.getMonth()+3)/3), //季度
+            "S" : this.getMilliseconds() //毫秒
+        };
+        var week = {
+            "0" : "/u65e5",
+            "1" : "/u4e00",
+            "2" : "/u4e8c",
+            "3" : "/u4e09",
+            "4" : "/u56db",
+            "5" : "/u4e94",
+            "6" : "/u516d"
+        };
+        if(/(y+)/.test(fmt)){
+            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+        }
+        if(/(E+)/.test(fmt)){
+            fmt=fmt.replace(RegExp.$1, ((RegExp.$1.length>1) ? (RegExp.$1.length>2 ? "/u661f/u671f" : "/u5468") : "")+week[this.getDay()+""]);
+        }
+        for(var k in o){
+            if(new RegExp("("+ k +")").test(fmt)){
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+            }
+        }
+        return fmt;
+    }
+</script>
+<script type="text/javascript">
+    jQuery(function($){
+        var mySwiper = new Swiper ('.module01 .swiper-container', {
+            direction : 'horizontal',
+            width : window.innerWidth,
+            loop: true,
+            freeMode : false,
+            grabCursor : true,
+            paginationClickable :true,
+            pagination: '.module01 .swiper-pagination',
+        });
+        var mySwiper = new Swiper ('.module02 .swiper-container', {
+            direction : 'horizontal',
+            width : window.innerWidth,
+            loop: true,
+            freeMode : false,
+            grabCursor : true,
+            paginationClickable :true,
+            pagination: '.module02 .swiper-pagination',
+        });
+        $('#realTiemTelFeeId').html("--&nbsp;&nbsp;");
+        $('#remainTelId').html("--&nbsp;&nbsp;");
+        $('#pointValueID').html("--&nbsp;&nbsp;");
+        $('#remainTelFeeId').html("--&nbsp;&nbsp;");
+        User.getFlow();
+        var date = new Date();
+        $("#timeID").text(date.pattern("yyyy-MM-dd HH:mm"));
+
+        $(window).load(function(e){
+            User.getFlow();
+            $('#continueScanID').click(function(){//再看看地址
+
+                $('#popupConetID').css("display","none");
+                $('#popudID').css("display","none");
+
+                //切换所有的a 链接地址
+                $('.nobindName').attr("href","/wechat-website/main/updataUser");
+            });
+
+            $('#bindID').click(function(){//绑定按钮
+                window.location.href = "/wechat-website/main/updataUser";
+            });
+
+            //用户信息显示
+            var url ='<%- user.headimgurl %>'
+            var nickname = '<%- user.nickname %>'.length > 5?'<%- user.nickname %>'.substr(0,5) + "...":'<%- user.nickname %>';
+            var formateTel = formatNumber('<%- user.telephone %>',"###,####,####").replace(",","-");
+            var phoneStatus = '<%- user.phoneStatus %>';
+            formateTel = formateTel.replace(",","-");
+            var phonePlace = getProvince('<%- user.phonePlace%>')
+            $('#headImgId').attr('src',url);
+            $("#nickNameId").text(nickname);
+            $("#telNumId").text(formateTel);
+            $("#cityId").text(phonePlace);
+            if(phoneStatus == '2'){
+                $('#headArowId').html("<div class='header-bRow clearfix'><img class='portrait-content fl' src='../img/icon-portrait.png'><div class='header-uname fl'>立即绑定享受更多服务</div> <img class='icon-arrow fr'  src='../img/homeArrowb.png'/></div>");
+            }else{
+                //获取套餐余量信息
+                $.ajax({
+                    async:true, //使用同步的Ajax请求
+                    type:"get",
+                    dataType:"json",
+                    data:{},
+                    url: '/usergrow/api/personal/home/<%- user.id %>',
+                    success:function(data) {
+                        //console.log(data);
+                        var fareBalance = data.data.fareBalance;//实时话费对象
+                        var time = fareBalance.opr_time;
+                        if(time!=null){//查询时间
+                            time = time.substring(0,4)+"-"+time.substring(4,6)+"-"+time.substring(6,8)+" "+time.substring(8,10)+":"+time.substring(10,12);
+                            $("#timeID").text(time);
+                        }else{
+                            var date = new Date();
+                            $("#timeID").text(date.pattern("yyyy-MM-dd HH:mm"));
+                        }
+                        //实时话费
+                        var realfeeqryrsp = fareBalance.real_fee_qry_rsp;
+                        if(realfeeqryrsp != null && realfeeqryrsp != ""){
+                            for(var i = 0;i<realfeeqryrsp.length;i++){
+                                if(realfeeqryrsp[i].cur_fee >= 0){
+                                    $("#remainTelFeeId").text(formatNumber(realfeeqryrsp[i].cur_fee,"#,###.00"));
+                                }else{
+                                    var cur_fee = Math.abs(realfeeqryrsp[i].cur_fee);
+                                    $("#remainTelFeeId").text("-"+formatNumber(cur_fee,"#,###.00"));
+                                }
+                                $("#realTiemTelFeeId").text(formatNumber(realfeeqryrsp[i].real_fee,"#,###.00"));
+                            }
+                        }else{
+                            $("#remainTelFeeId").html("--&nbsp;&nbsp;");
+                            $("#realTiemTelFeeId").html("--&nbsp;&nbsp;");
+                        }
+                        //积分查询
+                        var pointValue = data.data.pointInfo;
+                        if(pointValue=='--'){
+                            $("#pointValueID").html(pointValue+"&nbsp;&nbsp;");
+                        }else{
+                            $("#pointValueID").text(pointValue);
+                        }
+                        //剩余话费
+                        var serMargin = data.data.serviceMargin;
+                        if(serMargin.plan_remain!=null){
+                            var plan = serMargin.plan_remain;
+                            var remain_tel = 0; //剩余通话分钟数
+                            var flow_isuse = 0; //剩余流量
+                            var total_isuse = 0; //总流量
+                            for(var i in plan){
+                                if(plan[i].plan_name!=null && plan[i].plan_name != ""){
+                                    if(plan[i].resources_info!=null && plan[i].resources_info != ""){
+                                        var resourcesInfo = plan[i].resources_info;
+                                        for(var res=0 ; res<resourcesInfo.length;res++){
+                                            var resources_code = resourcesInfo[res].resources_code;
+                                            if(resources_code=='01'){//语音资源
+                                                if(resourcesInfo[res].sec_resources_info!=null&& resourcesInfo[res].sec_resources_info!=""){
+                                                    var secResourceInfo = resourcesInfo[res].sec_resources_info;
+                                                    for(var se=0;se<secResourceInfo.length;se++){
+                                                        if(secResourceInfo[se].sec_resources_name!=null&& secResourceInfo[se].sec_resources_name!=""){
+                                                            if(secResourceInfo[se].resources_left_info!=null && secResourceInfo[se].resources_left_info!=""){
+                                                                var resourceLeftInfo = secResourceInfo[se].resources_left_info;
+                                                                for(var le=0;le<resourceLeftInfo.length;le++){
+                                                                    var remain = (resourceLeftInfo[le].remain_res).replace(',','');
+
+                                                                    remain_tel = Number(remain_tel) + Number(remain);
+
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            if(resources_code=='04'){//流量
+                                                if(resourcesInfo[res].sec_resources_info!=null && resourcesInfo[res].sec_resources_info != ""){
+                                                    var secResourceInfo = resourcesInfo[res].sec_resources_info;
+                                                    for(var se=0;se<secResourceInfo.length;se++){
+                                                        if(secResourceInfo[se].sec_resources_name!=null &&secResourceInfo[se].sec_resources_name != ""){
+                                                            if(secResourceInfo[se].resources_left_info!=null && secResourceInfo[se].resources_left_info != ""){
+                                                                var resourceLeftInfo = secResourceInfo[se].resources_left_info;
+                                                                for(var le=0;le<resourceLeftInfo.length;le++){
+                                                                    var remain = (resourceLeftInfo[le].remain_res).replace(',','');
+                                                                    var total = (resourceLeftInfo[le].total_res).replace(',','');
+                                                                    var unit = resourceLeftInfo[le].unit;
+                                                                    if(unit=='03'){//KB
+                                                                        remain = Number(remain)/1024;
+                                                                        total = Number(total)/1024;
+                                                                    }
+                                                                    if(unit=='05'){//GB
+                                                                        remain = Number(remain)*1024;
+                                                                        total = Number(total)*1024;
+                                                                    }
+                                                                    flow_isuse = Number(flow_isuse) + Number(remain);
+
+
+                                                                    total_isuse = Number(total_isuse) + Number(total);
+
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            $("#remainTelId").text(formatNumber(remain_tel,"#,###"));
+                            if(flow_isuse >= 1024){//剩余流量大于1G,以GB显示
+                                flow_isuse = flow_isuse/1024;
+                                flow_isuse = flow_isuse.toFixed(2);
+
+                                total_isuse = total_isuse/1024;
+                                total_isuse = total_isuse.toFixed(2);
+
+                                User.getFlow([{"remainingFlow":flow_isuse,"totalFlow":total_isuse,"type":"GB"}]);
+                            }else{
+                                flow_isuse = flow_isuse.toFixed(0);
+                                total_isuse = total_isuse.toFixed(0);
+                                User.getFlow([{"remainingFlow":flow_isuse,"totalFlow":total_isuse,"type":"MB"}]);
+                            }
+                        }else{
+                            $("#remainTelId").html("--&nbsp;&nbsp;");
+                            User.getFlow();
+                        }
+                    }
+                });
+            };
+        });
+    });
+    $(function() {
+        //评价入口
+        $("#newHomefloatlayer").click(function() {
+            //window.location.href="http://www.sojump.com/jq/7112773.aspx";
+            window.location.href = "/survey/gotoSactionView?operType=personHome&jmpurl=http://www.sojump.com/jq/7112773.aspx";
+        });
+        $('.floatlayer img').click(function(e){
+            $('.floatlayer').hide();
+            e.stopPropagation();
+        });
+        $("#rankC").click(function() {
+            //window.location.href="http://www.sojump.com/jq/7112773.aspx";
+            window.location.href="http://mp.weixin.qq.com/s?__biz=MzA5OTM5NTEwOA==&mid=668896638&idx=4&sn=90169cfcc57aee83939635a68ad94656&scene=0#rd";
+        });
+        $('.p-rank-close').click(function(){
+            $('.p-rank-c').hide();
+            event.stopPropagation();
+        });
+    });
+</script>
+
+</html>
