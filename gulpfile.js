@@ -2,7 +2,7 @@
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({
-  pattern: ['gulp-*', 'del', 'imagemin-pngquant']
+  pattern: ['gulp-*', 'del', 'imagemin-pngquant', 'jshint-stylish']
 });
 
 gulp.task('clean', function() {
@@ -77,7 +77,8 @@ gulp.task('jsLint', function() {
     'public/libs/**/*.js'
   ])
   .pipe($.jshint())
-  .pipe($.jshint.reporter())
+  .pipe($.jshint.reporter($.jshintStylish))
+  // .pipe($.jshint.reporter('jshint-stylish'))  // jshint-stylish 两种写法
   .pipe($.size());
 });
 
