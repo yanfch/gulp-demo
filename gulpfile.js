@@ -14,9 +14,11 @@ gulp.task('scripts', ['clean'], function() {
   return gulp.src([
     'public/libs/**/*.js'
   ])
+  .pipe($.sourcemaps.init())
   .pipe($.uglify())
   .pipe($.concat('app.min.js'))
   .pipe($.size())
+  .pipe($.sourcemaps.write('/'))
   .pipe(gulp.dest('public/build/libs'));
 });
 
